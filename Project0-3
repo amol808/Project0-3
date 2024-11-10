@@ -1,0 +1,52 @@
+# Initial dataset of allowed vehicles
+AllowedVehiclesList = ['Ford F-150', 'Chevrolet Silverado', 'Tesla CyberTruck', 'Toyota Tundra', 'Nissan Titan']
+
+# Display program title and menu
+def display_menu():
+    print("********************************")
+    print("AutoCountry Vehicle Finder v0.3")
+    print("********************************")
+    print("Please Enter the following number below from the following menu:\n")
+    print("1. PRINT all Authorized Vehicles")
+    print("2. SEARCH for Authorized Vehicle")
+    print("3. ADD Authorized Vehicle")
+    print("4. Exit")
+
+# Initial display of the menu when the program starts
+display_menu()
+
+# Main program loop
+while True:
+    choice = input("\nEnter your choice: ")
+
+    if choice == '1':
+        # Display authorized vehicle message and list
+        print("\nThe AutoCountry sales manager has authorized the purchase and selling of the following vehicles:")
+        for vehicle in AllowedVehiclesList:
+            print(vehicle)
+        
+        # Re-display the menu after printing the list
+        display_menu()
+        
+    elif choice == '2':
+        # Prompt user to enter a vehicle name for search
+        search_vehicle = input("Please Enter the full Vehicle name: ")
+
+        # Check if the vehicle is in the allowed list and print appropriate message
+        if search_vehicle in AllowedVehiclesList:
+            print(f"{search_vehicle} is an authorized vehicle.")
+        else:
+            print(f"{search_vehicle} is not an authorized vehicle, if you received this in error please check the spelling and try again.")
+        
+        # Re-display the menu after the search
+        display_menu()
+        
+    elif choice == '3':
+        # Prompt user to enter a new vehicle name to add
+        new_vehicle = input("Please Enter the full Vehicle name you would like to add: ")
+
+        # Check if the vehicle is already in the list (case-sensitive comparison)
+        if new_vehicle not in AllowedVehiclesList:
+            AllowedVehiclesList.append(new_vehicle)
+      
+
